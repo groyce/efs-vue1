@@ -1,6 +1,6 @@
 /* eslint-disable */
 import axios from 'axios';
-const API_URL = 'http://localhost:8000'; /* replace with heroku url */
+const API_URL = 'http://groyce.pythonanywhere.com/'; /* replace with heroku url */
 
 export class APIService {
   constructor() {
