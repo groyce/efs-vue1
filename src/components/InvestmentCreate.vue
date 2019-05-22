@@ -54,6 +54,7 @@
                   v-model="investment.acquired_date"
                   label="Acquired_date"
                   required
+                  type="date"
 
                 />
                 <v-text-field
@@ -66,6 +67,7 @@
                   v-model="investment.recent_date"
                   label="Recent Date"
                   required
+                  type="date"
                 />
 
               </v-container>

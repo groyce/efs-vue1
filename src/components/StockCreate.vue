@@ -35,8 +35,8 @@
                 />
 
                 <v-text-field
-                  v-model="stock.Symbol"
-                  label="Symnbol"
+                  v-model="stock.symbol"
+                  label="Symbol"
                   required
                 />
                 <v-text-field
@@ -61,6 +61,7 @@
                   v-model="stock.purchase_date"
                   label="Purchase Date"
                   required
+                  type="date"
                 />
 
 

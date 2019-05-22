@@ -20,19 +20,19 @@
         :value="true"
         type="success"
       >
-        New investment has been added.
+        New stock has been added.
       </v-alert>
       <v-alert v-if="showMsg === 'update'" dismissible
         :value="true"
         type="success"
       >
-        Investment information has been updated.
+        Stock information has been updated.
       </v-alert>
          <v-alert v-if="showMsg === 'deleted'" dismissible
         :value="true"
         type="success"
       >
-        Selected Investment has been deleted.
+        Selected Stock has been deleted.
       </v-alert>
 
        </v-flex>
@@ -85,11 +85,11 @@
   const apiService = new APIService();
 
   export default {
-    name: "InvestmentList",
+    name: "StockList",
     data: () => ({
-      investments: [],
+      stocks: [],
       validUserName: "Guest",
-      investmentSize: 0,
+      stockSize: 0,
       showMsg: '',
       headers: [
         
@@ -99,13 +99,15 @@
         {text: 'Share', sortable: false, align: 'left',},
         {text: 'Purchase_Price', sortable: false, align: 'left',},
         {text: 'Purchase_Date', sortable: false, align: 'left',},
+        {text: 'Update', sortable: false, align: 'left',},
+        {text: 'Delete', sortable: false, align: 'left',}
 
 
       ],
 
     }),
     mounted() {
-      this.getInvestments();
+      this.getStocks();
       this.showMessages();
     },
     methods: {
@@ -116,9 +118,9 @@
          }
       },
       getStocks() {
-        apiService.getStock().then(response => {
+        apiService.getStockList().then(response => {
           this.stocks = response.data.data;
-          this.stockSize = this.investments.length;
+          this.stockSize = this.stocks.length;
           if (localStorage.getItem("isAuthenticates")
             && JSON.parse(localStorage.getItem("isAuthenticates")) === true) {
             this.validUserName = JSON.parse(localStorage.getItem("log_user"));
@@ -135,15 +137,15 @@
       addNewStock() {
         if (localStorage.getItem("isAuthenticates")
           && JSON.parse(localStorage.getItem("isAuthenticates")) === true) {
-          router.push('/investment-create');
+          router.push('/stock-create');
         } else {
           router.push("/auth");
         }
       },
       updateStock(stock) {
-        router.push('/investment-create/' + stock.pk);
+        router.push('/stock-create/' + stock.pk);
       },
-      deleteInvestment(stock) {
+      deleteStock(stock) {
         apiService.deleteStock(stock.pk).then(response => {
           if (response.status === 204) {
             alert("Stock deleted");

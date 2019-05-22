@@ -101,6 +101,8 @@
         {text: 'Acquired_Date', sortable: false, align: 'left',},
         {text: 'Recent_Value', sortable: false, align: 'left',},
         {text: 'Recent_Date', sortable: false, align: 'left',},
+        {text: 'Update', sortable: false, align: 'left',},
+        {text: 'Delete', sortable: false, align: 'left',}
 
       ],
 
