@@ -71,7 +71,7 @@
       </v-layout>
       </v-container>
 
-      <v-btn class="blue white--text" @click="addNewAtock">Add Stock</v-btn>
+      <v-btn class="blue white--text" @click="addNewStock">Add Stock</v-btn>
     </v-container>
 
   </main>
